@@ -5,15 +5,19 @@
 # V12toV13
 
 **CodAre'ın resmi sitesi için yapılmış v12tov13 sistemi (BETA)**
-  
+
  # Kurulum
  Yakında!
  
  # kullanım 
  YAKINDA!
-  </div>
- 
-Contributorlar:
- <a href="https://github.com/SpongeBed81">SpongeBed</a>,
- <a href="https://github.com/xrenata">Renata</a>,
- <a href="https://github.com/iamashley0">Ashley</a><br>
+     </div>
+
+# Contributorlar:
+* [iamashley0](https://github.com/iamashley0) -
+  **Ashley** (she/her)
+* [xrenata](https://github.com/xrenata) -
+  **Emirhan** (he/him)
+* [SpongeBed81](https://github.com/SpongeBed81) -
+  **Uras** (he/him)
+
