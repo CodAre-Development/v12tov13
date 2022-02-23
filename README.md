@@ -15,9 +15,9 @@
 
 # Contributorlar:
 * [iamashley0](https://github.com/iamashley0) -
-  **Ashley** (she/her)
+  **Ashley**
 * [xrenata](https://github.com/xrenata) -
-  **Emirhan** (he/him)
+  **Emirhan**
 * [SpongeBed81](https://github.com/SpongeBed81) -
-  **Uras** (he/him)
+  **Uras**
 
