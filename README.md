@@ -13,7 +13,7 @@
  YAKINDA!
   </div>
  
-Contrubutorlar:
+Contributorlar:
  <a href="https://github.com/SpongeBed81">SpongeBed</a>,
  <a href="https://github.com/xrenata">Renata</a>,
  <a href="https://github.com/iamashley0">Ashley</a><br>
