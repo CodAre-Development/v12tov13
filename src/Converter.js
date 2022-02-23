@@ -16,10 +16,9 @@ const processes = [
   {
     name: '.attachFiles',
     throwWarn: true,
-    title: 'Embed objesinden "attachFiles" metodu v13\'te kaldÄ±rÄ±lmÄ±ÅŸtÄ±r',
-    warnMsg:
-      'Bu v12 metodu otomatik olarak dÃ¼zeltilemediÄŸi iÃ§in bu metodun yeni kullanÄ±mÄ±na ÅŸu linkten eriÅŸebilirsiniz: https://discordjs.guide/additional-info/changes-in-v13.html#sending-messages-embeds-files-etc'
-  },
+    title: `Embed objesinden "attachFiles" metodu v13'te kaldırılmıştır`,
+     warnMsg: `Bu v12 metodu otomatik olarak düzeltilemediği için bu metodun yeni kullanımına şu linkten erişebilirsiniz: https://discordjs.guide/additional-info/changes-in-v13.html#sending-messages-embeds-files-etc`
+   },
   {
     name: '.createReactionCollector',
     usage: '.createReactionCollector(argument, { argument })',
