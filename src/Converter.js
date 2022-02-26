@@ -61,7 +61,7 @@ module.exports = {
       if (process_.throwWarn) {
         console.log(`\n\n${process_.title}\n\n${process_.warnMsg}\n\n`);
       } else if(process_.event) {
-          if(line.includes(`.on("${process_.name}"`) || line.includes(`.on('${process_.name}'`) || line.includes(".on(" + "`" + "message" + "`")) {
+          if(line.includes(`.on("${process_.name}"`) || line.includes(`.on('${process_.name}'`) || line.includes(".on(" + "`" + process_.name + "`")) {
             console.log(line.replace(process_.name, process_.replace))
           }
       } else {
