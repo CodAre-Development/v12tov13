@@ -43,6 +43,13 @@ const processes = [
     name: `message`,
     replace: `messageCreate`,
     event: true
+  },
+  {
+    name: ".fetchApplication",
+    usage: ".fetchApplication",
+    replace: ".application",
+    newName: ".application",
+    isFunc: false
   }
 ];
 
@@ -76,11 +83,17 @@ module.exports = {
           } catch(e) {
               const find = processes.find(el => line.includes(el.name))
               if(find == undefined) {
-                  
+
               } else {
-                const change = line.replace(find.name, find.replace)
-                console.log(change)
-                continue;
+                  if(process_.isFunc == false) {
+                    const change = line.replace(find.name, find.replace).replace("(", "").replace(")", "")
+                    console.log(change)
+                    continue;
+                  } else {
+                    const change = line.replace(find.name, find.replace)
+                    console.log(change)
+                    continue;
+                  }
               }
             
           }
@@ -137,8 +150,11 @@ module.exports = {
           paramMatches.length = matches.length;
 
           const joined = paramMatches.join(',');
-
-          final = `${process_.newName}(${joined})`;
+          if(process_.replace.includes("(") && process_.replace.includes(")")) {
+            final = `${process_.newName}(${joined})`;
+          } else {
+            final = process_.newName   
+          }
         }
         console.log(final);
       }
