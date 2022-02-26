@@ -94,7 +94,7 @@ module.exports = {
 
           //  console.log(joined);
 
-          final = `${process_.newName}({ ${joind} })`;
+          final = `${process_.newName}({ ${joined} })`;
         } else {
           const paramMatches = match.split(',');
 
