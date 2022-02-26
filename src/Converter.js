@@ -38,6 +38,11 @@ const processes = [
     usage: ".ownerID",
     replace: ".ownerId",
     newName: ".ownerId"
+  },
+  {
+    name: `message`,
+    replace: `messageCreate`,
+    event: true
   }
 ];
 
@@ -53,9 +58,13 @@ module.exports = {
 
       if (process_ === undefined) continue;
 
-      if (process_.throwWarn)
+      if (process_.throwWarn) {
         console.log(`\n\n${process_.title}\n\n${process_.warnMsg}\n\n`);
-      else {
+      } else if(process_.event) {
+          if(line.includes(`.on("${process_.name}"`) || line.includes(`.on('${process_.name}'`) || line.includes(".on(" + "`" + "message" + "`")) {
+            console.log(line.replace(process_.name, process_.replace))
+          }
+      } else {
           let matches;
           try{
             const matches1 = line
@@ -66,9 +75,14 @@ module.exports = {
             matches = matches1
           } catch(e) {
               const find = processes.find(el => line.includes(el.name))
-              if(find == undefined) return
-              const change = line.replace(find.name, find.replace)
-           return console.log(change)
+              if(find == undefined) {
+                  
+              } else {
+                const change = line.replace(find.name, find.replace)
+                console.log(change)
+                continue;
+              }
+            
           }
   
 
