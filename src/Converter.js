@@ -25,12 +25,26 @@ const processes = [
     replace: '.createReactionCollector({ argument, argument })',
     newName: '.createReactionCollector',
     freeObject: true
+  },
+  {
+    name: ".awaitReactions",
+    usage: ".awaitReactions(argument, { argument })",
+    replace: ".awaitReactions({argument, argument})",
+    newName: ".awaitReactions",
+    freeObject: true
+  },
+  {
+    name: ".ownerID",
+    usage: ".ownerID",
+    replace: ".ownerId",
+    newName: ".ownerId"
   }
 ];
 
 module.exports = {
   convert(file) {
-    const lines = readFileSync(file, 'utf-8').split('\n');
+    const read = readFileSync(file, 'utf-8')
+    const lines = read.split("\n")
 
     for (const line of lines) {
       const process_ = processes.find((process__) =>
@@ -42,11 +56,21 @@ module.exports = {
       if (process_.throwWarn)
         console.log(`\n\n${process_.title}\n\n${process_.warnMsg}\n\n`);
       else {
-        const matches = line
-          .slice(line.indexOf(process_.name))
-          .match(/\(([^)]+)\)/)[1]
-          .split(',')
-          .map((match) => match.trim());
+          let matches;
+          try{
+            const matches1 = line
+            .slice(line.indexOf(process_.name))
+            .match(/\(([^)]+)\)/)[1]
+            .split(',')
+            .map((match) => match.trim());
+            matches = matches1
+          } catch(e) {
+              const find = processes.find(el => line.includes(el.name))
+              if(find == undefined) return
+              const change = line.replace(find.name, find.replace)
+           return console.log(change)
+          }
+  
 
         let replaced = process_.replace;
 
@@ -92,8 +116,6 @@ module.exports = {
 
           const joined = objectMatches.join(',');
 
-          //  console.log(joined);
-
           final = `${process_.newName}({ ${joined} })`;
         } else {
           const paramMatches = match.split(',');
@@ -104,7 +126,6 @@ module.exports = {
 
           final = `${process_.newName}(${joined})`;
         }
-
         console.log(final);
       }
     }
