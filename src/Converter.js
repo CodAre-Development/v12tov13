@@ -44,6 +44,114 @@ const processes = [{
         newName: ".ownerId"
     },
     {
+        name: ".afkChannelID",
+        usage: ".afkChannelID",
+        replace: ".afkChannelId",
+        newName: ".afkChannelId"
+    },
+    {
+        name: ".applicationID",
+        usage: ".applicationID",
+        replace: ".applicationId",
+        newName: ".applicationId"
+    },
+    {
+        name: ".channelID",
+        usage: ".channelID",
+        replace: ".channelId",
+        newName: ".channelId"
+    },
+    {
+        name: ".creatorID",
+        usage: ".creatorID",
+        replace: ".creatorId",
+        newName: ".creatorId"
+    },
+    {
+        name: ".guildID",
+        usage: ".guildID",
+        replace: ".guildId",
+        newName: ".guildId"
+    },
+    {
+        name: ".lastMessageID",
+        usage: ".lastMessageID",
+        replace: ".lastMessageId",
+        newName: ".lastMessageId"
+    },
+    {
+        name: ".parentID",
+        usage: ".parentID",
+        replace: ".parentId",
+        newName: ".parentId"
+    },
+    {
+        name: ".partyID",
+        usage: ".partyID",
+        replace: ".partyId",
+        newName: ".partyId"
+    },
+    {
+        name: ".processID",
+        usage: ".processID",
+        replace: ".processId",
+        newName: ".processId"
+    },
+    {
+        name: ".publicUpdatesChannelID",
+        usage: ".publicUpdatesChannelID",
+        replace: ".publicUpdatesChannelId",
+        newName: ".publicUpdatesChannelId"
+    },
+    {
+        name: ".resolveID",
+        usage: ".resolveID",
+        replace: ".resolveId",
+        newName: ".resolveId"
+    },
+    {
+        name: ".rulesChannelID",
+        usage: ".rulesChannelID",
+        replace: ".rulesChannelId",
+        newName: ".rulesChannelId"
+    },
+    {
+        name: ".sessionID",
+        usage: ".sessionID",
+        replace: ".sessionId",
+        newName: ".sessionId"
+    },
+    {
+        name: ".shardID",
+        usage: ".shardID",
+        replace: ".shardId",
+        newName: ".shardId"
+    },
+    {
+        name: ".systemChannelID",
+        usage: ".systemChannelID",
+        replace: ".systemChannelId",
+        newName: ".systemChannelId"
+    },
+    {
+        name: ".webhookID",
+        usage: ".webhookID",
+        replace: ".webhookId",
+        newName: ".webhookId"
+    },
+    {
+        name: ".widgetChannelID",
+        usage: ".widgetChannelID",
+        replace: ".widgetChannelId",
+        newName: ".widgetChannelId"
+    },
+    {
+        name: ".workerID",
+        usage: ".workerID",
+        replace: ".workerId",
+        newName: ".workerId"
+    },
+    {
         name: `message`,
         replace: `messageCreate`,
         event: true
