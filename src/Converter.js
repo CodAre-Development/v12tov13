@@ -212,6 +212,12 @@ const processes = [{
         newName: "user.setPresence",
         useParser: true,
         pullFrom: "0->activity"
+    },
+    {
+        name: "Permissions",
+        usage: "Permissions(argument)",
+        replace: "Permissions(argumentn)",
+        newName: "Permissions"
     }
 ];
 
