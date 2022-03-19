@@ -1,0 +1,5 @@
+embed.setAuthor(Ð"merhaba"Ð)
+message.createReactionCollector(Ðfilter,Ð Ð{ time: 15000 }Ð);
+channel.createOverwrite(Ðuser,Ð Ð{ VIEW_CHANNEL: false }Ð);
+.attachFiles()
+.ownerID
