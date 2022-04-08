@@ -233,6 +233,12 @@ const processes = [{
         newName: '.setPresence'
     },
     {
+        name: '.setStatus',
+        throwWarn: true,
+        title: `setStatus metodu v13'te Promise döndürmemektedir. Kodunuzda buna dikkat ediniz`,
+        warnMsg: `Daha fazla detay için: https://discordjs.guide/additional-info/changes-in-v13.html#clientuser-setstatus`
+    },
+    {
         name: "Permissions",
         usage: "Permissions(argument)",
         maxArgsCount: 1,
@@ -290,11 +296,18 @@ const processes = [{
         justReplace: true
     },
     {
+        name: '.members.ban',
+        usage: '.members.ban(argument, argument)',
+        replace: `.members.ban(1*-SpargumentBd-*1 2*{ reason: -SpargumentBd- }*2)`,
+        maxArgsCount: 2,
+        newName: '.members.ban'
+    },
+    {
         name: '.ban',
         usage: '.ban(argument)',
         replace: `.ban(1*{ reason: -SpargumentBd- }*1)`,
         maxArgsCount: 1,
-        newName: '.bans.fetch'
+        newName: '.ban'
     },
     {
         name: ".respawnAll",
@@ -302,6 +315,72 @@ const processes = [{
         replace: ".respawnAll({ 1*shardDelay: -SpargumentBd-*1 2* respawnDelay: -SpargumentBd-*2 3* timeout:-SpargumentBd-*3 })",
         maxArgsCount: 3,
         newName: ".respawnAll"
+    },
+    {
+        name: '.mfaLevel',
+        throwWarn: true,
+        title: `mfaLevel özelliği v13'te Enum(Numaraldırılmış tür) döndürmektedir. Kodunuzda buna dikkat ediniz`,
+        warnMsg: `Daha fazla detay için: https://discordjs.guide/additional-info/changes-in-v13.html#guild-mfalevel`
+    },
+    {
+        name: '.owner',
+        throwWarn: true,
+        title: `Guild objesinden owner özelliği v13'te fetchOwner() metodu ile değiştirilmiştir. Kodunuzda buna dikkat ediniz`,
+        warnMsg: `Daha fazla detay için: https://discordjs.guide/additional-info/changes-in-v13.html#guild-owner` 
+    },
+    {
+        name: ".setWidget",
+        usage: ".setWidget",
+        replace: ".setWidgetSettings",
+        newName: ".setWidgetSettings",
+        justReplace: true
+    },
+    {
+        name: ".guild.voice",
+        usage: ".guild.voice",
+        replace: ".guild.me.voice",
+        newName: ".guild.me.voice",
+        justReplace: true
+    },
+    {
+        name: ".overwritePermissions",
+        usage: ".overwritePermissions",
+        replace: ".permissionOverwrites.set",
+        newName: ".permissionOverwrites.set",
+        justReplace: true
+    },
+    {
+        name: '.setTopic',
+        throwWarn: true,
+        title: `GuildChannel objesinden setTopic metodu v13'te kaldırılmıştır. Kodunuzda buna dikkat ediniz`,
+        warnMsg: `Daha fazla detay için: https://discordjs.guide/additional-info/changes-in-v13.html#guildchannel-settopic` 
+    },
+    {
+        name: ".updateOverwrite",
+        usage: ".updateOverwrite",
+        replace: ".permissionOverwrites.edit",
+        newName: ".permissionOverwrites.edit",
+        justReplace: true
+    },
+    {
+        name: ".hasPermission",
+        usage: ".hasPermission",
+        replace: ".permissions.has",
+        newName: ".permissions.has",
+        justReplace: true
+    },
+    {
+        name: '.edits',
+        throwWarn: true,
+        title: `Message objesinden edits özelliği v13'te kaldırılmıştır. Kodunuzda buna dikkat ediniz`,
+        warnMsg: `Daha fazla detay için: https://discordjs.guide/additional-info/changes-in-v13.html#message-edits` 
+    },
+    {
+        name: ".FLAGS.MANAGE_EMOJIS",
+        usage: ".FLAGS.MANAGE_EMOJIS",
+        replace: ".FLAGS.MANAGE_EMOJIS_AND_STICKERS",
+        newName: ".FLAGS.MANAGE_EMOJIS_AND_STICKERS",
+        justReplace: true
     }
 ]
 
@@ -345,8 +424,8 @@ module.exports = {
 
             if (process_.justReplace) {
                 resolve({
-                    before: usage.trim(),
-                    after: usage.replace(process_.name, process_.newName).trim()
+                    before: replaceAll(usage.trim(), "Ð", ""),
+                    after: replaceAll(usage.replace(process_.name, process_.newName).trim(), "Ð", "")
                 })
                 return
             }
@@ -355,8 +434,8 @@ module.exports = {
                 if (replaceAll(usage, " ", "").includes(`${process_.useEqualOperatorHandler.what}=="${process_.name}"`) || replaceAll(usage, " ", "").includes(`${process_.useEqualOperatorHandler.what}=='${process_.name}'`) || replaceAll(usage, " ", "").includes(process_.useEqualOperatorHandler.what + "==`" + process_.name + "`") || replaceAll(usage, " ", "").includes(`${process_.useEqualOperatorHandler.what}==="${process_.name}"`) || replaceAll(usage, " ", "").includes(`${process_.useEqualOperatorHandler.what}==='${process_.name}'`) || replaceAll(usage, " ", "").includes(process_.useEqualOperatorHandler.what + "===`" + process_.name + "`")) {
                     let currentResult = process_.useEqualOperatorHandler.what + "==`" + process_.replace + "`"
                     resolve({
-                        before: usage.trim(),
-                        after: currentResult.trim()
+                        before: replaceAll(usage.trim(), "Ð", ""),
+                        after: replaceAll(currentResult.trim(), "Ð", "")
                     })
                 }
             }
@@ -364,8 +443,8 @@ module.exports = {
             if (process_.event) {
                 if (usage.includes(`.on("${process_.name}"`) || usage.includes(`.on('${process_.name}'`) || usage.includes(".on(" + "`" + process_.name + "`")) {
                     resolve({
-                        before: usage.trim(),
-                        after: usage.replace(process_.name, process_.replace).trim()
+                        before: replaceAll(usage.trim(), "Ð", ""),
+                        after: replaceAll(usage.replace(process_.name, process_.replace).trim(), "Ð", "")
                     })
                 }
                 return
