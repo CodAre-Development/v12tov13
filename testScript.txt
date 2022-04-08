@@ -1,5 +1,17 @@
-embed.setAuthor(Ð"merhaba"Ð)
-message.createReactionCollector(Ðfilter,Ð Ð{ time: 15000 }Ð);
-channel.createOverwrite(Ðuser,Ð Ð{ VIEW_CHANNEL: false }Ð);
-.attachFiles()
-.ownerID
+.setAuthor(Ð"selam"Ð, Ð"iconişte"Ð, Ð"iconişte"Ð)
+channel.createOverwrite(ÐuserÐ, Ð{ VIEW_CHANNEL: false }Ð);
+const collector = message.awaitReactions(ÐfilterÐ, { Ðtime: 15000Ð });
+.workerID
+
+client.on("message", async(msg) => {
+
+})
+
+client.fetchWidget()
+client.generateInvite(Ð[Permissions.FLAGS.SEND_MESSAGES]Ð);
+client.user.setPresence({ activity: Ð{ name: 'with discord.js' }Ð });
+Permissions(Ð104324673Ð);
+if(channel.type == "text") {}
+guild.fetchBan(ÐsaÐ);
+member.ban(Ð"ban yedin ağla"Ð)
+client.shard.respawnAll(Ð5000Ð, Ð500Ð, Ð30000Ð);
