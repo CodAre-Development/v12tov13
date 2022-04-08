@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fs": "^0.0.1-security",
-    "json5": "^2.2.0"
+    "fs": "^0.0.1-security"
   }
 }
