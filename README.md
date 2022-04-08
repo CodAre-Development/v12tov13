@@ -24,7 +24,8 @@
   ```js
   Eğer çevirici programının kodlarını değiştirmek istiyorsanız bilmeniz gerekenler şunlardır
 
-  1)-Sp ve Bd- kullanıcının v12 kodunda belirttiği argümanı alıp v13te bulunan yerine koymaya yarar örnek olarak
+  1)-Sp ve Bd- kullanıcının v12 kodunda belirttiği argümanı alıp v13te bulunan 
+  yerine koymaya yarar örnek olarak
   .setAuthor(Ð"birinci argüman"Ð, Ð"ikinci argüman"Ð) //v12 kodumuz
 
   //Program otomatik olarak argümanları sıraya dizer ve yerleştirir sonuç altta belirtilmiştir
@@ -41,7 +42,9 @@
   newName: '.setAuthor'
 }
 
-  2)Processes arrayinde bulunan bazı objelerde bulunan replace özelliğinde bulunan <Sayi>* ve *<Sayi> ne anlama gelmektedir?
+  2)Processes arrayinde bulunan bazı objelerde bulunan replace özelliğinde bulunan 
+  <Sayi>* ve *<Sayi> ne anlama gelmektedir?
+
   1* ve *1 gibi yerlerin kullanılma sebebi eğer 1. argüman girilmezse 1* ve *1 
   arasındaki kısım otomatik olarak silinecektir anlamına gelmektedir aynı şekilde 
   bu 2. ve 3. argümanlar için de geçerlidir. Ek olarak program otomatik olarak argümanların
@@ -53,15 +56,19 @@
   3)maxArgsCount her argüman içerebilen metodların objelerine eklenmesi zorunlu bir özelliktir
 
   4)justReplace nedir?
+
   Eğer bir metodun kullanım şekli aynı kalmış sadece metodun adı değiştirilmiş ise
   justReplace özelliği kullanılabilir. justReplace özelliği eklendiğinde argüman
   sistemi kullanılmaz bu yüzden obje justReplace içeriyorsa o objenin replace 
   özelliğine argüman sistemine dair herhangi bir şey girilmesi gereksizdir.
 
-  Not: justReplace özelliği sadece metodlarda değil işlem yapılan satırda herhangi bir şeyi değiştirmek için de kullanılabilmektedir.
+  Not: justReplace özelliği sadece metodlarda değil işlem yapılan satırda herhangi 
+  bir şeyi değiştirmek için de kullanılabilmektedir.
 
   5)useEqualOperatorHandler nedir?
-  Bu özellik Discord.js v13te değiştirilmiş bir özelliğin diğer bir özelliğe eşit olması gerekiyorsa kullanılan bir özelliktir
+
+  Bu özellik Discord.js v13te değiştirilmiş bir özelliğin diğer bir özelliğe eşit olması
+  gerekiyorsa kullanılan bir özelliktir
 
         Örnek olarak
         
