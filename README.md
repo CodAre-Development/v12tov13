@@ -7,11 +7,18 @@
 **CodAre'ın resmi sitesi için yapılmış v12tov13 sistemi (BETA)**
 
  # Kurulum
- Yakında!
+ Projeyi klonladıktan sonra proje klasörünün içine girin ve klasörde bir terminal açın. Terminalinize ```npm i``` yazmanız yeterli olacaktır.
  
- # kullanım 
- YAKINDA!
-     </div>
+ # Kullanım 
+  ```
+  v12 kodunuzda bulunan metodların argümanlarının her birini "Ð" işaretleri arasına koymalısınız böylece 
+  program metodunuzda bulunan argümanları ayırt edebilsin. Eğer argüman sisteminin nasıl çalıştığını hala
+  anlamadıysanız testScript.txt içinde halihazırda yazılı olan koda bakarak argüman
+  sisteminin çalışma prensibini anlayabilirsiniz.
+
+  Kurulum aşamasından sonra çalıştırmak için src klasöründeki FileReader.js dosyasını başlatmanız yeterlidir.
+  ```
+</div>
 
 # Contributorlar:
 * [iamashley0](https://github.com/iamashley0) -
