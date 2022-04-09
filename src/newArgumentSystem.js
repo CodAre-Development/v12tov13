@@ -1,5 +1,3 @@
-let between = require("./Between").getFromBetween
-
 //FONKSİYONLARDA MAX ARGUMENT COUNT GİRİLMELİDİR
 
 let argumentSystem = require("./Replacer")
@@ -9,6 +7,13 @@ const processes = [{
         replace: '.setAuthor({ 1*name: -SpargumentBd-*1 2*iconURL: -SpargumentBd-*2 3*url: -SpargumentBd-*3 })',
         maxArgsCount: 3,
         newName: '.setAuthor'
+    },
+    {
+        name: '.setFooter',
+        usage: '.setFooter(argument, argument)',
+        replace: '.setAuthor({ 1*text: -SpargumentBd-*1 2*iconURL: -SpargumentBd-*2 })',
+        maxArgsCount: 2,
+        newName: '.setFooter'
     },
     {
         name: '.createOverwrite',
@@ -255,6 +260,60 @@ const processes = [{
         }
     },
     {
+        name: "dm",
+        usage: "dm",
+        replace: "DM",
+        newName: "DM",
+        useEqualOperatorHandler: {
+            what: ".type"
+        }
+    },
+    {
+        name: "voice",
+        usage: "voice",
+        replace: "GUILD_VOICE",
+        newName: "GUILD_VOICE",
+        useEqualOperatorHandler: {
+            what: ".type"
+        }
+    },
+    {
+        name: "category",
+        usage: "category",
+        replace: "GUILD_CATEGORY",
+        newName: "GUILD_CATEGORY",
+        useEqualOperatorHandler: {
+            what: ".type"
+        }
+    },
+    {
+        name: "news",
+        usage: "news",
+        replace: "GUILD_NEWS",
+        newName: "GUILD_NEWS",
+        useEqualOperatorHandler: {
+            what: ".type"
+        }
+    },
+    {
+        name: "store", //bunlar deprecated olcakmış ama salla yine de güncellesin çevirici bişi olmz
+        usage: "store",
+        replace: "GUILD_STORE",
+        newName: "GUILD_STORE",
+        useEqualOperatorHandler: {
+            what: ".type"
+        }
+    },
+    {
+        name: "unknown",
+        usage: "unknown",
+        replace: "UNKNOWN",
+        newName: "UNKNOWN",
+        useEqualOperatorHandler: {
+            what: ".type"
+        }
+    },
+    {
         name: ".addMember",
         usage: ".addMember",
         replace: ".members.add",
@@ -317,9 +376,16 @@ const processes = [{
         newName: ".respawnAll"
     },
     {
+        name: ".spawn",
+        usage: ".spawn(argument, argument, argument)",
+        replace: ".spawn({ 1*amount: -SpargumentBd-*1 2* delay: -SpargumentBd-*2 3* timeout:-SpargumentBd-*3 })",
+        maxArgsCount: 3,
+        newName: ".spawn"
+    },
+    {
         name: '.mfaLevel',
         throwWarn: true,
-        title: `mfaLevel özelliği v13'te Enum(Numaraldırılmış tür) döndürmektedir. Kodunuzda buna dikkat ediniz`,
+        title: `mfaLevel özelliği v13'te Enum(Numaralandırılmış tür) döndürmektedir. Kodunuzda buna dikkat ediniz`,
         warnMsg: `Daha fazla detay için: https://discordjs.guide/additional-info/changes-in-v13.html#guild-mfalevel`
     },
     {
@@ -381,6 +447,32 @@ const processes = [{
         replace: ".FLAGS.MANAGE_EMOJIS_AND_STICKERS",
         newName: ".FLAGS.MANAGE_EMOJIS_AND_STICKERS",
         justReplace: true
+    },
+    {
+        name: ".FLAGS.DISCORD_PARTNER",
+        usage: ".FLAGS.DISCORD_PARTNER",
+        replace: ".FLAGS.PARTNERED_SERVER_OWNER",
+        newName: ".FLAGS.PARTNERED_SERVER_OWNER",
+        justReplace: true   
+    },
+    {
+        name: ".FLAGS.VERIFIED_DEVELOPER",
+        usage: ".FLAGS.VERIFIED_DEVELOPER",
+        replace: ".FLAGS.EARLY_VERIFIED_BOT_DEVELOPER",
+        newName: ".FLAGS.EARLY_VERIFIED_BOT_DEVELOPER",
+        justReplace: true      
+    },
+    {
+        name: '.kick',
+        throwWarn: true,
+        title: `Eğer kick metodunuz sesli kanaldan üye atmak için kullanıldıysa bu metodun adı Discord.js v13'te disconnect olarak değiştirilmiştir. Kodunuzda buna dikkat ediniz`,
+        warnMsg: `Daha fazla detay için: https://discord.js.org/#/docs/discord.js/stable/class/VoiceState?scrollTo=disconnect` 
+    },
+    {
+        name: '.broadcastEval',
+        throwWarn: true,
+        title: `Bu metodun kullanımı v13te tamamen değiştirilmiştir ve çevirici programı düzeltmeleri uygulayamamıştır yeni kullanım için aşağıda bulunan bağlantıyı takip ediniz.`,
+        warnMsg: `Daha fazla detay için: https://discordjs.guide/additional-info/changes-in-v13.html#shardclientutil-broadcasteval` 
     }
 ]
 
@@ -399,7 +491,6 @@ module.exports = {
             let process_ = processes.find(x => usage.includes(x.name))
 
             if (process_ === undefined) {
-
                 resolve("No data found!")
                 return;
             }
@@ -407,11 +498,9 @@ module.exports = {
                 process_ = processes.find(x => usage.includes(x.name) && x.event !== true)
 
                 if (process_ === undefined) {
-
                     resolve("No data found!")
                     return;
                 }
-
             }
 
             if (process_.throwWarn) {
